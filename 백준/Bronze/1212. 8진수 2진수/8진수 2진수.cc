@@ -1,40 +1,20 @@
 #include <iostream>
 #include <string>
+
 using namespace std;
 
-int main()
-{
-    string octal;
-    cin >> octal;
+int main(void) {
 
-    if(octal == "0")
-        cout << 0 << '\n';
+	string eight;
+	string two[8] = { "000", "001", "010", "011", "100", "101", "110", "111" };
+	int temp;
 
-    string result;
-    for (int i = 0; i < octal.length(); i++)
-    {
-        result += to_string((octal[i] - '0') / 4);
-        result += to_string(((octal[i] - '0') % 4) / 2);
-        result += to_string((((octal[i] - '0') % 4) % 2) / 1);
-    }
+	cin >> eight;
 
-    bool flag = false;
-    for (int i = 0; i < result.length(); i++)
-    {
-        if (!flag)
-        {
-            if (result[i] == '1')
-            {
-                flag = true;
-                cout << result[i];
-            }
-        }
-        else
-        {
-            cout << result[i];
-        }
-    }
-    cout << '\n';
+	for (int i = 0; i < eight.length(); i++) {
 
-    return 0;
+		temp = eight[i] - '0';
+		if (i == 0) cout << stoi(two[temp]);
+		else cout << two[temp];
+	}
 }
